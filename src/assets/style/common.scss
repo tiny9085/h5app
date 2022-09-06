@@ -1,0 +1,233 @@
+html,
+body {   
+    background: #fff;
+    height:100vh;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+        Microsoft YaHei, Arial, sans-serif;
+        word-break: break-all;
+}
+body > a {
+    opacity: 0;
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+textarea {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+        "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+section.app-main{
+    margin-bottom: -14px;
+}
+
+//clearfix
+.clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
+.brand {
+    margin-left: 0.08rem;
+    font-size: 0.22rem;
+    padding: 0 0.08rem;
+    border-radius: 0.16rem;
+    color: #ed3129;
+    border: 0.02rem solid #ed3129;
+}
+.van-stepper {
+    .van-stepper__input {
+        margin: 0;
+        border: 1px solid rgba(228, 228, 228, 1);
+        background-color: transparent;
+        border-left: 0;
+        border-right: 0;
+        box-sizing: border-box;
+        width: 1.16rem;
+        color: #333;
+        font-size: 0.32rem;
+        overflow: hidden;
+    }
+
+    .van-stepper__minus,
+    .van-stepper__plus {
+        width: 0.6rem;
+        height: 0.6rem;
+        margin: 0;
+        border: 1px solid rgba(228, 228, 228, 1);
+        background-color: transparent;
+    }
+
+    .van-stepper__minus {
+        border-radius: 0.14rem 0 0 0.14rem;
+    }
+
+    .van-stepper__plus {
+        border-radius: 0 0.14rem 0.14rem 0;
+    }
+}
+
+/** 产品标签 **/
+.item-label {
+    position: relative;
+    margin-left: 0.08rem;
+    font-size: 0.24rem;
+    line-height: 1;
+    padding: 0.04rem 0.16rem;
+    border-radius: 0.2rem;
+
+    &.label-zat {
+        color: #01924d;
+        border: 0.02rem solid #01924d;
+    }
+
+    &.label-lsx {
+        color: #ed3129;
+        border: 0.02rem solid #ed3129;
+    }
+
+    &.label-chx {
+        color: #dc3264;
+        border: 0.02rem solid #dc3264;
+    }
+
+    &.label-gift {
+        position: absolute;
+        right: 0;
+        top: 0.04rem;
+        padding: 0.08rem 0.16rem;
+        line-height: 1;
+        font-size: 0.24rem;
+        color: #fff;
+        background: #ed3129;
+        border-radius: 0;
+        border: 0;
+    }
+}
+.bottom {
+    height: 1rem;
+    background: #fff;
+}
+.top-div {
+    height: 0.92rem;
+    background: #fff;
+}
+.border-bottom {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: " ";
+        left: 0;
+        bottom: 0;
+        width: 200%;
+        z-index: 1;
+        border-bottom: 2px  solid #EEEEEE;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+    }
+}
+.personal-box{
+    padding-top: 46px;
+}
+.van-loading {
+    width: 100%;
+    padding-top: 0.1rem;
+}
+.jxq{
+    .van-dialog__message{
+        font-size: .32rem !important;
+        color: #333333;
+    }
+    .van-dialog__confirm {
+        background-color: #ed3129;
+    }
+} 
+.van-checkbox{
+    i.van-icon{
+        // font-size: .24rem !important;
+        // line-height: .28rem !important;
+    }
+}
+.van-radio{
+    i.van-icon{
+        // font-size: .24rem !important;
+        // line-height: .28rem !important;
+    }
+}
+.van-checkbox__icon--checked {
+    i.van-icon{
+        background-color: #ed3129;
+        border-color: #ed3129;
+    }
+}
+.van-radio__icon--checked {
+    i.van-icon{
+        background-color: #ed3129;
+        border-color: #ed3129;
+    }
+}
+
+// ui重构
+.van-tabs__nav--line{
+    .van-tabs__line{
+        height: .08rem;
+        border-radius: 4px;
+    }
+    .van-tab{
+        color: #666666;
+        font-size: .32rem;
+    }
+    .van-tab--active{
+        font-weight: 600;
+        .van-tab__text{
+            color: #ED3129;
+        }
+    }
+}
+.van-popup--bottom{
+    -webkit-transform: translate3d(0,0,0)!important;
+    transform: translate3d(0,0,0)!important;
+}

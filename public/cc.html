@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css"> -->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>中转页</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body>a {
+            display: none;
+        }
+
+        #wechat {
+            display: none;
+            background: #003F9A;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        #wechat>.image-1 {
+            width: 5.13rem;
+            height: 2.47rem;
+            position: absolute;
+            top: .15rem;
+            right: .15rem;
+            background: url('https://imga.hnhcyy.com/fed/b2b-h5/wechat-guide/image-4.png') 50% 50% no-repeat;
+            background-size: contain;
+        }
+
+        #wechat>.image-2 {
+            width: 100%;
+            height: 5rem;
+            position: relative;
+            top: 4.6rem;
+            background: url('https://imga.hnhcyy.com/fed/b2b-h5/wechat-guide/image-2.png') top center no-repeat;
+            background-size: contain;
+        }
+
+        #wechat>.image-2>.image-3 {
+            position: absolute;
+            top: 1.93rem;
+            left: 2.32rem;
+            background: url('https://imga.hnhcyy.com/fed/b2b-h5/wechat-guide/image-3.png') center center no-repeat;
+            width: 2.89rem;
+            height: .67rem;
+            background-size: contain;
+        }
+
+        #wechat>.image-2>.image-4 {
+            position: absolute;
+            top: 3rem;
+            left: .46rem;
+            background: url('https://imga.hnhcyy.com/fed/b2b-h5/wechat-guide/image-1.png') center center no-repeat;
+            width: 6.6rem;
+            height: 1.04rem;
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but hc-fed-wechat doesn't work properly without JavaScript enabled. Please enable it to
+            continue.</strong>
+    </noscript>
+    <div id="app">
+        <a href=""><span id="sp"></span></a>
+    </div>
+    <div id="wechat">
+        <div class="image-1"></div>
+        <div class="image-2">
+            <div class="image-3"></div>
+            <div class="image-4"></div>
+        </div>
+    </div>
+    <!-- built files will be auto injected -->
+</body>
+<script src="https://imga.hnhcyy.com/fed/cdn/pxtorem.js"></script>
+<script>
+    window.onload = function () {
+        var browser = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {   //移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+        if (browser.versions.mobile) {//判断是否是移动设备打开。browser代码在下面
+            var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                //在微信中打开
+                var ele = document.getElementById('app')
+                document.body.removeChild(ele)
+                document.getElementById('wechat').style.display = 'block'
+            } else {
+                loacationType = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? 'hcjkpay' : 'hcyy'
+                const herfLink = loacationType + '://wzCommodity/commodityDetail' + window.location.search
+                document.body.getElementsByTagName("a")[0].href = herfLink
+                document.getElementById("sp").click();
+            }
+        }
+
+    }
+</script>
+
+</html>

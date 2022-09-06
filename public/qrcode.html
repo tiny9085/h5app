@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>恒昌医药</title>
+    <script type="text/javascript" src="./file/jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./file/index.css" />
+    <link rel="stylesheet" href="./file/swiper/swiper-bundle.min.css" />
+    <script type="text/javascript" src="./file/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="./file/pxtorem.js"></script>
+  </head>
+  <body>
+    <div id="details-page">
+      <div class="details-nav">
+        <div class="details-nav-left">
+          <img
+            class="nav-left-img"
+            src="./file/images/icon_返回@2x.png"
+            alt=""
+          />
+        </div>
+        <div class="details-nav-right">恒昌医药</div>
+      </div>
+      <div class="details-banner">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="" alt="" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="details-footer">
+        <div class="product-name"></div>
+        <div class="product-price">
+          <div class="product-price-top">
+            <div class="product-price-img">
+              <img
+                class="price-img"
+                src="./file/images/icon_建议零售价@2x.png"
+                alt=""
+              />
+            </div>
+            <div class="product-sell-price">建议零售价</div>
+          </div>
+          <div class="product-price-buttom">
+            <div class="buttom-price"></div>
+          </div>
+        </div>
+        <div class="product-size">
+          <div class="product-size-top">
+            <div class="product-size-img">
+              <img
+                class="size-img"
+                src="./file/images/icon_规格@2x.png"
+                alt=""
+              />
+            </div>
+            <div class="specifications">规格</div>
+          </div>
+          <div class="product-size-buttom">
+            <div class="size-buttom-price"></div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-content-top">
+            <div class="product-content-img">
+              <img
+                class="content-img"
+                src="./file/images/icon_净含量@2x.png"
+                alt=""
+              />
+            </div>
+            <div class="content">净含量</div>
+          </div>
+          <div class="product-content-buttom">
+            <div class="content-number"></div>
+          </div>
+        </div>
+        <div class="product-factory">
+          <div class="product-factory-top">
+            <div class="product-factory-img">
+              <img
+                class="factory-img"
+                src="./file/images/icon_厂家@2x.png"
+                alt=""
+              />
+            </div>
+            <div class="factory">生产厂家</div>
+          </div>
+          <div class="product-factory-buttom">
+            <div class="factory-name"></div>
+          </div>
+        </div>
+      </div>
+      <div class="invalid-page">
+        <div class="coding">
+          <img
+            class="coding-img"
+            src="./file/images/icon_二维码编号@2x.png"
+            alt=""
+          />
+        </div>
+        <div class="coding-code">二维码编号</div>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    import VMnative from './file/VMnative.js'
+    function isWeiXin() {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+      return true;
+      } else {
+      return false;
+      }
+      }
+      if(isWeiXin()){
+        $(".details-nav").hide();
+      }else{
+        $(".details-nav").show();
+      }
+    function GetQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    var qrCode = GetQueryString("qrCode");
+    var source = GetQueryString("source");
+    if (source === "app") {
+      VMnative.callHandler("setTitle", '恒昌医药');
+      $(".details-nav").hide();
+    }else{
+      $(function(){
+        $(".details-nav-left").click(function(){
+          window.location.href=".././src/views/home/index.vue"
+        })
+      })
+    }
+    $.ajax({
+      url: `apis/product/api/product/search/qrCode/${qrCode}`,
+      type: "GET",
+      dataType: "json",
+      success: function(data) {
+        if (data.data.productType === 0) {
+          $(".product-content").hide();
+        }
+        if (data.code === 0) {
+          $(".invalid-page").hide();
+          var list = data.data;
+          var price = "";
+          var size = "";
+          var content = "";
+          var factory = "";
+          var name = "";
+          var img = "";
+          list.imgUrl.forEach(item => {
+            img += `<div class="swiper-slide"><img class="swiper-slide-img" src="${item}" onerror="this.src='https://imga.hnhcyy.com/fed/b2b-wechat/no-picture.png'" /></div>`;
+          });
+          name += `<div class="product-name">${list.commodityName}</div>`;
+          price += `<div class="buttom-price">¥${list.price}</div>`;
+          size += `<div class="size-buttom-price">${list.spec}</div>`;
+          content += `<div class="content-number">${list.containedQuantity}</div>`;
+          factory += `<div class="factory-name">${list.manufacturer}</div>`;
+          $(".swiper-wrapper").html(img);
+          $(".product-name").html(name);
+          $(".product-price-buttom").html(price);
+          $(".product-size-buttom").html(size);
+          $(".product-content-buttom").html(content);
+          $(".product-factory-buttom").html(factory);
+          var mySwiper = new Swiper(".swiper-container", {
+            loop: true,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true
+            }
+          });
+        } else {
+          $(".details-banner").hide();
+          $(".details-footer").hide();
+          var code = "";
+          code += `<div class="coding-number">${data.data}</div>`;
+          $(".coding-code").after(code);
+        }
+      }
+    });
+  </script>
+</html>

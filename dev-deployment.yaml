@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: b2b-h5
+  namespace: web
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: b2b-h5
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: b2b-h5
+    spec:
+      imagePullSecrets:
+      - name: hc-hub
+      containers:
+        - image: 'nginx:1.18.0'
+          imagePullPolicy: Always
+          name: nginx
+          ports:
+            - containerPort: 80
+              name: h5
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /etc/nginx/conf.d
+              name: b2b-h5-config
+            - mountPath: /usr/share/nginx
+              name: web-volume
+      dnsPolicy: ClusterFirst
+      initContainers:
+        - args:
+            - '-r'
+          command:
+            - cp
+            - /app
+            - /website
+          image: >-
+            hub.hcops.cn/hcyy-b2b/hcyy-fed-b2b-h5:latest
+          imagePullPolicy: Always
+          name: web
+          resources: {}
+          volumeMounts:
+            - mountPath: /website
+              name: web-volume
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - emptyDir: {}
+          name: web-volume
+        - configMap:
+            defaultMode: 420
+            name: h5-dev.b2b.hcyy.top
+          name: b2b-h5-config

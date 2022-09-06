@@ -1,0 +1,410 @@
+$essential: #00B760;
+
+.theme-2 {
+
+  //个人中心首页
+  .Page-personal-index {
+    .top {
+      .top-bar {
+        background-image: url(https://imga.hnhcyy.com/fed/b2b-wechat/personal-bg-zat.png?v=1);
+
+        .user-avatar {
+          .van-image {
+            background-image: url(https://imga.hnhcyy.com/fed/b2b-wechat/icon-avatar-zat.png);
+          }
+        }
+      }
+
+      .topBar {
+        background: $essential;
+      }
+    }
+
+    .van-button--danger {
+      border: 1px solid $essential;
+    }
+
+    .logout-box .btn-logout .van-button.van-button--danger {
+      background: $essential;
+    }
+  }
+
+  .van-info {
+    background-color: $essential;
+  }
+
+  .van-sidebar-item--select {
+    border-color: $essential;
+  }
+
+  .van-tabs__line {
+    background-color: $essential;
+  }
+
+  .van-button--danger {
+    border: 1px solid $essential;
+  }
+  // 订单列表
+  .order-title .van-tab--active .van-tab__text{
+    color: $essential;
+  }
+  //分类
+  .Page-menu-index, .Page-menu-index2 {
+    .classification-box .all-class-box {
+        .active{
+            color: $essential;
+            .img{
+                background: url(https://imga.hnhcyy.com/fed/b2b-wechat/selected-class-2.png) no-repeat;
+                background-size: 100% auto;
+            }
+        }
+        .checked-first{
+            background: url(https://imga.hnhcyy.com/fed/b2b-wechat/close-class-2.gif) no-repeat;
+            background-size: 100%;
+        }
+        .open-first{
+            background: url(https://imga.hnhcyy.com/fed/b2b-wechat/open-class-2.gif) no-repeat;
+            background-size: 100%;
+        }
+    }
+
+    .van-tab--active {
+      .van-tab__text {
+        color: $essential;
+      }
+    }
+
+    .van-tabs__line {
+      background-color: $essential;
+    }
+
+    .no-data div {
+      background: $essential;
+    }
+    .van-button{
+      background: $essential !important;
+    }
+
+    .sort-box {
+      .row {
+        &.checked-row {
+          color: $essential;
+        }
+
+        .triangle-box {
+          .icon {
+            background: url("~@/assets/images/icon-arrow-2.png") no-repeat;
+            background-size: 100% auto;
+          }
+          .triangle {
+            &.triangle-top-red {
+              border-bottom-color: $essential;
+            }
+
+            &.triangle-bottom-red {
+              border-top-color: $essential;
+            }
+
+            &.triangle-left-red {
+              border-left-color: $essential;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Page-quick-index {
+     .label div.showArr:nth-child(2) p::after {
+      background: url("~@/assets/images/icon-arrow-2.png") no-repeat;
+      background-size: 100% auto;
+    }
+    .label .actived{
+      color: $essential;
+      .triangle-left {
+        border-left-color: $essential !important;
+      }
+    .triangle.triangle-top-red {
+        border-bottom-color: $essential;
+      }
+    .triangle.triangle-bottom-red {
+        border-top-color: $essential;
+      }
+    }
+  }
+  .head-popup {
+    .van-popup__close-icon {
+      color: $essential;
+    }
+    .head-screen {
+      width: 100%;
+      height: 1.5rem;
+      background-image: url("~@/assets/images/screen-2.png");
+      background-size: 100% auto;
+      h1:before {
+        background: linear-gradient(180deg, $essential 0%, #1CD77E 100%);
+      }
+    }
+    .active {
+      background: #ECFFF6 !important;
+      color: $essential !important;
+    }
+  }
+
+  //切换业务线
+  .popup-select-club {
+    .van-button.van-button--danger {
+      background-color: $essential !important;
+    }
+
+  }
+
+  //购物车
+  .Page-cart-list {
+    .footer-bar .van-button {
+      background: $essential;
+    }
+
+    .no-data div {
+      background: $essential;
+    }
+
+    .store .store-content .product-brand {
+      color: $essential;
+      border-color: $essential;
+    }
+    .store .top.close-top{
+        background: $essential;
+    }
+    .van-checkbox .van-checkbox__icon--checked i.van-icon{
+        background: $essential;
+        border-color: $essential;
+    }
+    .footer-bar .bottom-toolbar .van-button{
+        background: $essential;
+    }
+  }
+
+  //订单确认
+  .order-box.order-box {
+    .submit-order .van-button {
+      background: $essential;
+    }
+
+    .no-data div {
+      background: $essential;
+    }
+  }
+
+  //收银台
+  .checkout-box {
+    .floor-3 .van-button {
+      background: $essential;
+    }
+  }
+
+  //品牌
+  .item-label.label-lsx {
+    color: $essential;
+    border: 0.02rem solid $essential;
+  }
+
+  //快速下单
+  .Page-quick-index {
+    .van-tabs .van-tab.van-tab--active {
+      .van-tab__text {
+        color: $essential;
+      }
+    }
+
+    .van-button{
+      background: $essential !important;
+    }
+
+    .van-tabs .van-tabs__line::after {
+      position: absolute;
+      box-sizing: border-box;
+      content: ' ';
+      pointer-events: none;
+      right: 0.4rem;
+      bottom: -0.04rem;
+      left: 0.4rem;
+      border-bottom: 8px solid $essential;
+      -webkit-transform: scaleY(.5);
+      transform: scaleY(.5);
+      border-radius: 4px;
+    }
+
+    .no-data div {
+      background: $essential;
+    }
+    .van-button{
+      background: $essential !important;
+    }
+  }
+
+  //首页
+  .Page-home-index {
+    .top {
+      background: $essential;
+
+      .fixedFloor {
+        background: $essential;
+      }
+    }
+  }
+
+  //订单详情
+  .Page-index-detail {
+    .add-cart-box .add-cart {
+      background: $essential;
+    }
+    .good-title .line{
+      background: linear-gradient(180deg, $essential 0%, #1CD77E 100%);
+    }
+    .add-cart-box .cart-icon-box .num{
+      background: $essential;
+    }
+  }
+
+  //我的订单
+  .order-box {
+    .order-list .order-li .btn-box .van-button.van-button--danger {
+      background-color: $essential !important;
+    }
+  }
+
+  //订单详情
+  .order-detail {
+    .order-btns .van-button.van-button--danger {
+      background-color: $essential;
+    }
+  }
+
+  // 付款成功
+  .pay-success div a:nth-child(2) {
+    background: $essential;
+  }
+
+  .Page-personal-server {
+    .server-box {
+      background: url(https://imga.hnhcyy.com/fed/b2b-wechat/server-bg-zat.png) no-repeat;
+      background-size: 100%;
+    }
+  }
+  // 多门店加入购物车选择店铺
+  .popup-select-shop{
+      .van-checkbox__icon--checked i.van-icon{
+        background-color: $essential;
+        border-color: $essential;
+      }
+      .scroll-box .checkbox-group .store-list-box.checked-store{
+        .van-checkbox__label{
+            color: $essential;
+        }
+      }
+      .btn .van-button.van-button--danger{
+        background-color: $essential;
+      }
+  }
+  // 购物车换赠品&&额外的赠品
+  .replace-gift-popup{
+    .van-radio__icon--checked i.van-icon{
+        background-color: $essential;
+        border-color: $essential;
+    }
+    .popup-content{
+      background: url('https://imga.hnhcyy.com/fed/b2b-wechat/spec-bg-2.png') no-repeat;
+        background-size: 100% auto;
+        .close-btn{
+            background: #ABEACB;
+        }
+    }
+    .submit-gift{
+        background-color: $essential;
+    }
+  }
+  .van-checkbox__icon--checked i.van-icon,.van-radio__icon--checked i.van-icon{
+    background-color: $essential;
+    border-color: $essential;
+  }
+  .Page-index-extra .btn-box .comfirmBtn{
+    background: $essential;
+  }
+
+  // 意见反馈
+  .feed-list-box{
+    .van-tab__text{
+      color: $essential !important;
+    }
+    .no-message .van-button{
+      background: $essential;
+    }
+  }
+
+  // 领券中心
+  .couponList{
+    .no-data .van-button{
+      background: $essential !important;
+    }
+  }
+
+  //我的优惠券
+  .Page-personal-coupon{
+    .van-tab--active::after{
+      border-bottom: 0.16rem solid  $essential !important;
+    }
+    .van-tab--active .van-tab__text{
+      color: $essential !important;
+    }
+    .no-data .van-button{
+      background: $essential !important;
+    }
+    .update-bar .get-more-coupon{
+      background: $essential;
+    }
+  }
+
+    // 加入购物车商品信息确认卡片
+    div.spec-box{
+        background: url('https://imga.hnhcyy.com/fed/b2b-wechat/spec-bg-2.png') no-repeat;
+        background-size: 100% auto;
+        .top .top-right .close-btn{
+            background: #ABEACB;
+        }
+        .info .row-title .line{
+          background: linear-gradient(180deg, $essential 0%, #1CD77E 100%);
+        }
+        .pack-list .active{
+          border-color: $essential;
+          background: #ECFFF6;
+          color: $essential;
+        }
+        .footer p{
+            background: $essential;
+        }
+    }
+    .Page-personal-feedback {
+      .feed-type-box .feed-type .active{
+        background: $essential;
+      }
+      .submit-btn button{
+        background: $essential;
+      }
+    }
+    .search-box .history-box .delete-complete{
+      color: $essential;
+    }
+    .Page-personal-balance .tab-box .van-tabs {
+      .van-tab--active .van-tab__text{
+        color: $essential;
+      }
+      .van-tab.van-tab--active::after{
+        border-color: $essential;
+      }
+
+    }
+    .special-activities-YLLT{
+      background: url(https://imga.hnhcyy.com/fed/b2b-wechat/special_yllt_bg_2.png) no-repeat;
+      background-size: 100%;
+    }
+}
